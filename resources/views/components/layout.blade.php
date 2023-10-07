@@ -16,8 +16,11 @@
 </head>
 
 <body>
+
   <header class="header-bar">
+
     <div class="container d-flex flex-column flex-md-row align-items-center p-3">
+      @auth
       <h4 class="my-0 mr-md-auto font-weight-normal"><a href="/" class="text-white">GHIT Management</a></h4>
       <ul class="nav justify-content-end">
         <li class="nav-item">
@@ -27,16 +30,96 @@
           <a class="nav-link text-white" href="/register">Register</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link text-white" href="/login">Login</a>
+          <form method="POST" action="/logout">
+            @csrf
+            <button type="submit" class="btn btn-link nav-link text-white">Logout</button>
+          </form>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/dashboard">Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/blogPage">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/career">Career</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="/contact">Contact Us</a>
         </li>
       </ul>
     </div>
+    @else
+    <h4 class="my-0 mr-md-auto font-weight-normal"><a href="/" class="text-white">GHIT Management</a></h4>
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <a class="nav-link active text-white" href="/">Home</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/register">Register</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/login">Login</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/blogPage">Blog</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/career">Career</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="/contact">Contact Us</a>
+      </li>
+    </ul>
+    @endauth
+    </div>
+
   </header>
 
   {{$slot}}
 
-  <footer class="border-top text-center small text-muted py-3" style="background-color: #FFFFFF; color: #fff; margin: 0; padding: 0;>
+  <!-- <footer class="border-top text-center small text-muted py-3" style="background-color: #FFFFFF; color: #fff; margin: 0; padding: 0;>
       <p class=" m-0">Copyright &copy; 2022 <a href="/" class="text-muted">Optic Nation</a>. All rights reserved.</p>
+  </footer> -->
+  <footer class="pt-4 mx-md-4 my-md-5 pt-md-5 border-top">
+    <div class="row">
+      <div class="col-12 col-md">
+
+        <!-- <small class="d-block mb-3 text-muted"> Copyright &copy; 2017-2023</small> -->
+        <p>&copy; <script>
+            document.write(new Date().getFullYear());
+          </script> All rights reserved</p>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Features</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Projects</a></li>
+          <li><a class="text-muted" href="#">Random Articles</a></li>
+          <li><a class="text-muted" href="#">Team Members</a></li>
+          <li><a class="text-muted" href="#">Stuff for developers</a></li>
+
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>Resources</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Resource</a></li>
+          <li><a class="text-muted" href="#">Resource name</a></li>
+          <li><a class="text-muted" href="#">Another resource</a></li>
+          <li><a class="text-muted" href="#">Final resource</a></li>
+        </ul>
+      </div>
+      <div class="col-6 col-md">
+        <h5>About</h5>
+        <ul class="list-unstyled text-small">
+          <li><a class="text-muted" href="#">Team</a></li>
+          <li><a class="text-muted" href="#">Locations</a></li>
+          <li><a class="text-muted" href="#">Privacy</a></li>
+          <li><a class="text-muted" href="#">Terms</a></li>
+        </ul>
+      </div>
+    </div>
   </footer>
 
   <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

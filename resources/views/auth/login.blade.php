@@ -22,7 +22,9 @@
 
 <body class="bg-gradient-primary">
     <header class="header-bar">
+
         <div class="container d-flex flex-column flex-md-row align-items-center p-3">
+            @auth
             <h4 class="my-0 mr-md-auto font-weight-normal"><a href="/" class="text-white">GHIT Management</a></h4>
             <ul class="nav justify-content-end">
                 <li class="nav-item">
@@ -32,10 +34,36 @@
                     <a class="nav-link text-white" href="/register">Register</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link text-white" href="/login">Login</a>
+                    <form method="POST" action="/logout">
+                        @csrf
+                        <button type="submit" class="btn btn-link nav-link text-white">Logout</button>
+                    </form>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="/dashboard">Dashboard</a>
                 </li>
             </ul>
         </div>
+        @else
+
+        <h4 class="my-0 mr-md-auto font-weight-normal"><a href="/" class="text-white">GHIT Management</a></h4>
+        <ul class="nav justify-content-end">
+            <li class="nav-item">
+                <a class="nav-link active text-white" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/register">Register</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/login">Login</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link text-white" href="/dashboard">Dashboard</a>
+            </li>
+        </ul>
+        @endauth
+        </div>
+
     </header>
 
     <div class="container">
@@ -55,10 +83,10 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
                                     </div>
-                                    <form action= "/loginsave" method="POST" class="user">
+                                    <form action="/loginsave" method="POST" class="user">
                                         @csrf
                                         <div class="form-group">
-                                            <input type="email" name='loginemail' value= "{{old('email')}}" class="form-control form-control-user " id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
+                                            <input type="email" name='loginemail' value="{{old('email')}}" class="form-control form-control-user " id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">
                                         </div>
                                         <div class="form-group">
                                             <input type="password" name='loginpassword' class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">

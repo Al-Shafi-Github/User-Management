@@ -21,22 +21,50 @@
 </head>
 
 <body class="bg-gradient-primary">
-    <header class="header-bar">
-        <div class="container d-flex flex-column flex-md-row align-items-center p-3">
-            <h4 class="my-0 mr-md-auto font-weight-normal"><a href="/" class="text-white">GHIT Management</a></h4>
-            <ul class="nav justify-content-end">
-                <li class="nav-item">
-                    <a class="nav-link active text-white" href="/">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="/register">Register</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link text-white" href="/login">Login</a>
-                </li>
-            </ul>
-        </div>
-    </header>
+<header class="header-bar">
+
+<div class="container d-flex flex-column flex-md-row align-items-center p-3">
+  @auth
+  <h4 class="my-0 mr-md-auto font-weight-normal"><a href="/" class="text-white">GHIT Management</a></h4>
+  <ul class="nav justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link active text-white" href="/">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white" href="/register">Register</a>
+    </li>
+    <li class="nav-item">
+      <form method="POST" action="/logout">
+        @csrf
+        <button type="submit" class="btn btn-link nav-link text-white">Logout</button>
+      </form>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white" href="/dashboard">Dashboard</a>
+    </li>
+  </ul>
+</div>
+@else
+
+  <h4 class="my-0 mr-md-auto font-weight-normal"><a href="/" class="text-white">GHIT Management</a></h4>
+  <ul class="nav justify-content-end">
+    <li class="nav-item">
+      <a class="nav-link active text-white" href="/">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white" href="/register">Register</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white" href="/login">Login</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link text-white" href="/dashboard">Dashboard</a>
+    </li>
+  </ul>
+  @endauth
+</div>
+
+</header>
 
     <div class="container">
 
@@ -54,7 +82,7 @@
                                 @csrf
                                 <div class="form-group">
 
-                                    <input type="text" name='name' value="{{old('name')}}" class="form-control form-control-user" id="exampleFirstName" placeholder=" Name">
+                            <input type="text" name='name' value="{{old('name')}}" class="form-control form-control-user" id="exampleFirstName" placeholder=" Name">
                                     @error('name')
                                     <p class="m-0 small alert alert-danger shadow-sm">{{$message}}</p>
                                     @enderror
