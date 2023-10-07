@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\User;
+use App\Models\UserDetails;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 
@@ -36,6 +37,7 @@ class AuthController extends Controller
 
     public function loginsave (Request $request)
     {
+        $users = UserDetails::all();
       $incomingfileds = $request->validate(
         [
             'loginemail'=> 'required',
@@ -44,11 +46,17 @@ class AuthController extends Controller
 
         if(auth()->attempt(['email'=> $incomingfileds['loginemail'], 'password'=> $incomingfileds['loginpassword']])){
             $request->session()->regenerate();
-            return view('homepage');
+            return view('homepage')->with('users', $users);
 
         }
         else {
                 return 'Fail';
         }
+    }
+    public function logout()
+    {
+        $users = UserDetails::all();
+        auth()->logout();
+        return view('homepage')->with('users', $users);
     }
 }

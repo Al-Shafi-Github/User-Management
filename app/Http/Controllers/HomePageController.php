@@ -2,17 +2,14 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\UserDetails;
 use Illuminate\Http\Request;
 
 class HomepageController extends Controller
 {
-    public function viewHomePage(){
-        if(auth()->check()){
-            return view('dashboad');
-        }
-        else{
-            return view('homepage');
-        }
-        
+    public function viewHomePage()
+    {
+        $users = UserDetails::all();
+        return view('homepage')->with('users', $users);
     }
 }
