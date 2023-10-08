@@ -17,7 +17,7 @@
         </div>
 
         <div class="col-md-6">
-          <form action="#" class="contFrm" method="POST">
+          <form action="/submitcontact" class="contFrm" method="POST">
             @csrf
             <div class="row">
               <div class="col-lg-6 mb-3">
@@ -33,11 +33,11 @@
               </div>
 
               <div class="col-lg-6 mb-3">
-                <input type="text" name="sub" placeholder="Subject" class="inptFld" required />
+                <input type="text" name="subject" placeholder="Subject" class="inptFld" required />
               </div>
 
               <div class="col-lg-12 mb-3">
-                <textarea class="inptFld" rows="4" placeholder="Your Message..." required></textarea>
+                <textarea  name= "message" class="inptFld" rows="4" placeholder="Your Message..." required></textarea>
               </div>
 
               <div class="col-12 mb-5">
