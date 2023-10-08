@@ -48,3 +48,6 @@ Route::get('/blogPage', [OtherController::class, 'blogPage']);
 // Contact Us RELATED ROUTE
 Route::get('/contact', [OtherController::class, 'contact']);
 Route::post('/submitcontact', [OtherController::class, 'submitcontact']);
+
+// Gallery Route
+Route::get('/gallery', [OtherController::class, 'viewGallery']);
