@@ -19,6 +19,7 @@ use App\Http\Controllers\HomepageController;
 
 // HomePage Related Route
 Route::get('/', [HomepageController::class, 'viewHomePage']);
+// Route::get('/', [HomepageController::class, 'homeContent']);
 
 
 // Authentication Related Route
