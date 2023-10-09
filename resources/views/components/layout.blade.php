@@ -42,6 +42,9 @@
           <a class="nav-link text-white" href="/blogPage">Blog</a>
         </li>
         <li class="nav-item">
+          <a class="nav-link text-white" href="/gallery">Gallery</a>
+        </li>
+        <li class="nav-item">
           <a class="nav-link text-white" href="/career">Career</a>
         </li>
         <li class="nav-item">
@@ -65,6 +68,9 @@
       <li class="nav-item">
         <a class="nav-link text-white" href="/blogPage">Blog</a>
       </li>
+      <li class="nav-item">
+          <a class="nav-link text-white" href="/gallery">Gallery</a>
+        </li>
       <li class="nav-item">
         <a class="nav-link text-white" href="/career">Career</a>
       </li>
