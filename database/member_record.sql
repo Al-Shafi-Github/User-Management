@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 08, 2023 at 10:51 AM
+-- Generation Time: Oct 09, 2023 at 11:59 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.0.28
 
@@ -110,6 +110,30 @@ INSERT INTO `gallery` (`id`, `imagepath`, `created_at`, `updated_at`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `homepagedata`
+--
+
+CREATE TABLE `homepagedata` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `heading` varchar(255) NOT NULL,
+  `text` varchar(255) NOT NULL,
+  `imagepath` varchar(255) NOT NULL,
+  `created_at` timestamp NULL DEFAULT NULL,
+  `updated_at` timestamp NULL DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `homepagedata`
+--
+
+INSERT INTO `homepagedata` (`id`, `heading`, `text`, `imagepath`, `created_at`, `updated_at`) VALUES
+(1, 'Welcome To GHIT', 'The fastest Growing Software Company', 'coffee.png', '2023-10-09 08:52:01', '2023-10-09 08:52:14'),
+(2, 'Leading Software Developing Company', 'Find Your Solution Here', 'Mac.png', '2023-10-09 08:52:07', '2023-10-09 08:52:16'),
+(3, 'Expert Solution With Large Team', 'Join Us For Innovation', 'shutterstock.jpg', '2023-10-09 08:52:11', '2023-10-09 08:52:19');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `migrations`
 --
 
@@ -131,7 +155,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (5, '2023_09_23_063046_user__details', 1),
 (6, '2023_10_04_053758_create_career_table', 1),
 (7, '2023_10_07_080212_create_contact_table', 2),
-(8, '2023_10_08_041913_create_gallery_table', 3);
+(8, '2023_10_08_041913_create_gallery_table', 3),
+(9, '2023_10_09_065520_create_homepagedata_table', 4);
 
 -- --------------------------------------------------------
 
@@ -186,7 +211,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `created_at`, `updated_at`) VALUES
-(1, 'Abdullah Al Shafi', 'alsafi315@gmail.com', NULL, '$2y$10$/APfxweXnCfrV6k5gR5.weG2S9WwM/Z6nQwLAwARFPF7EuFriwFMi', NULL, '2023-10-04 02:59:45', '2023-10-04 02:59:45');
+(1, 'Abdullah Al Shafi', 'alsafi315@gmail.com', NULL, '$2y$10$/APfxweXnCfrV6k5gR5.weG2S9WwM/Z6nQwLAwARFPF7EuFriwFMi', NULL, '2023-10-04 02:59:45', '2023-10-04 02:59:45'),
+(2, 'Jubayer Daief', 'jubayer.daief@gmail.com', NULL, '$2y$10$DPUHvnDhDbPcV1wikdBX1OpPUfC.CgmRacfR9NuuuVqF.uEGGQXTa', NULL, '2023-10-08 23:40:59', '2023-10-08 23:40:59');
 
 -- --------------------------------------------------------
 
@@ -208,7 +234,9 @@ CREATE TABLE `user_details` (
 --
 
 INSERT INTO `user_details` (`id`, `name`, `description`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'Galib', 'SQA Engineer', '1696410801.jpg', '2023-10-04 03:13:21', '2023-10-04 03:13:21');
+(1, 'Galib', 'SQA Engineer', '1696410801.jpg', '2023-10-04 03:13:21', '2023-10-04 03:13:21'),
+(2, 'Jubayer Daief', 'New Vue Js Intern', '1696830140.jpg', '2023-10-08 23:42:20', '2023-10-08 23:42:20'),
+(3, 'Ashik Uddin', 'New Flutter Developer', '1696830176.jpg', '2023-10-08 23:42:56', '2023-10-08 23:42:56');
 
 --
 -- Indexes for dumped tables
@@ -237,6 +265,12 @@ ALTER TABLE `failed_jobs`
 -- Indexes for table `gallery`
 --
 ALTER TABLE `gallery`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `homepagedata`
+--
+ALTER TABLE `homepagedata`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -301,10 +335,16 @@ ALTER TABLE `gallery`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
+-- AUTO_INCREMENT for table `homepagedata`
+--
+ALTER TABLE `homepagedata`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `personal_access_tokens`
@@ -316,13 +356,13 @@ ALTER TABLE `personal_access_tokens`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `user_details`
 --
 ALTER TABLE `user_details`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
