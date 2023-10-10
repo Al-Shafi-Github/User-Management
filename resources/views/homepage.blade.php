@@ -1,29 +1,29 @@
 <x-layout>
 
-<div id="carouselExampleControls" class="carousel slide mb-5" data-ride="carousel">
+  <div id="carouselExampleControls" class="carousel slide mb-5" data-ride="carousel">
     <div class="carousel-inner">
-        @foreach($contents as $key => $content)
-        <div class="carousel-item {{$key == 0 ? 'active' : ''}}">
-            <div class="image-container">
-                <img class="bg-image d-block w-100" src="assets/images/{{$content->imagepath}}" alt="Slide {{$key + 1}}">
-                <div class="carousel-caption pos">
-                    <h2>{{$content->heading}}</h2>
-                    <p>{{$content->text}}</p>
-                </div>
-            </div>
+      @foreach($contents as $key => $content)
+      <div class="carousel-item {{$key == 0 ? 'active' : ''}}">
+        <div class="image-container">
+          <img class="bg-image d-block w-100" src="assets/images/{{$content->imagepath}}" alt="Slide {{$key + 1}}">
+          <div class="carousel-caption pos">
+            <h2>{{$content->heading}}</h2>
+            <p>{{$content->text}}</p>
+          </div>
         </div>
-        @endforeach
+      </div>
+      @endforeach
     </div>
 
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
     </a>
     <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
     </a>
-</div>
+  </div>
 
 
 
@@ -43,6 +43,29 @@
       @endforeach
     </div>
   </div>
+
+  <div class="container text-center">
+    <h1>Search & Read Books</h1>
+    <div id="pdfCarousel" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            @foreach ($books as $key => $book)
+                <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+                    <embed src="pdfbook/{{ $book->bookname }}" width="80%" height="500px" type="application/pdf">
+                </div>
+            @endforeach
+        </div>
+        <a class="carousel-control-prev" href="#pdfCarousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#pdfCarousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+
+
 
   <style>
     .image-container {
