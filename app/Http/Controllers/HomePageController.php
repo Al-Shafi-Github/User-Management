@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\homecontents;
+use App\Models\books;
 use App\Models\UserDetails;
+use App\Models\homecontents;
 use Illuminate\Http\Request;
 
 class HomepageController extends Controller
@@ -12,7 +13,8 @@ class HomepageController extends Controller
     {
         $users = UserDetails::all();
         $contents = homecontents::all();
+        $books = books::all();
 
-        return view('homepage')->with('users', $users)->with('contents', $contents);
+        return view('homepage')->with('users', $users)->with('contents', $contents)->with('books', $books);
     }
 }
