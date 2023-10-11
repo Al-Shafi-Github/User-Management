@@ -47,23 +47,23 @@
   <div class="container text-center">
     <h1>Search & Read Books</h1>
     <div id="pdfCarousel" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            @foreach ($books as $key => $book)
-                <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                    <embed src="pdfbook/{{ $book->bookname }}" width="80%" height="500px" type="application/pdf">
-                </div>
-            @endforeach
+      <div class="carousel-inner">
+        @foreach ($books as $key => $book)
+        <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
+          <embed src="pdfbook/{{ $book->bookname }}" width="80%" height="500px" type="application/pdf">
         </div>
-        <a class="carousel-control-prev" href="#pdfCarousel" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="carousel-control-next" href="#pdfCarousel" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Next</span>
-        </a>
+        @endforeach
+      </div>
+      <a class="carousel-control-prev" href="#pdfCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#pdfCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
     </div>
-</div>
+  </div>
 
 
 
@@ -85,6 +85,14 @@
       text-align: left;
       position: absolute;
       padding-bottom: 200px;
+    }
+
+    h2 {
+      color: black;
+    }
+
+    p {
+      color: black;
     }
   </style>
 
